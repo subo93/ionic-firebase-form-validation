@@ -7,8 +7,7 @@ export class FirebaseData {
   constructor() { }
 
   saveSong(songName: string, artistName: string, userAge: number): any {
-    const songRef = firebase.database().ref('songs');
-    return songRef.push({songName, artistName, userAge});
+    return firebase.database().ref('songs').push({ songName, artistName, userAge });
   }
 
 }

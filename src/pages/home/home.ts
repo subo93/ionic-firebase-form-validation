@@ -11,7 +11,8 @@ import { FirebaseData } from '../../providers/firebase-data';
 export class HomePage {
   public addSongForm: any;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public firebaseData: FirebaseData) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, 
+    public firebaseData: FirebaseData) {
     
     this.addSongForm = formBuilder.group({
       songName: ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
@@ -26,8 +27,7 @@ export class HomePage {
       console.log("Nice try!");
     } else {
       this.firebaseData.saveSong(this.addSongForm.value.songName, this.addSongForm.value.artistName, 
-      this.addSongForm.value.userAge)
-        .then( () => {
+        parseFloat(this.addSongForm.value.userAge)).then( () => {
           this.addSongForm.reset();
         });
     }
