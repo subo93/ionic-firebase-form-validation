@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AgeValidator } from '../../validators/age';
-import { FirebaseData } from '../../providers/firebase-data';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public addSongForm: any;
-
+  public addSongForm:FormGroup;
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, 
-    public firebaseData: FirebaseData) {
+    public firebaseData: FirebaseProvider) {
     
     this.addSongForm = formBuilder.group({
       songName: ['', Validators.compose([Validators.required, Validators.maxLength(45)])],

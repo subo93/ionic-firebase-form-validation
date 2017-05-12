@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { FirebaseData } from '../providers/firebase-data';
+import { FirebaseProvider } from '../providers/firebase/firebase';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { FirebaseData } from '../providers/firebase-data';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseData
+    FirebaseProvider
   ]
 })
 export class AppModule {}
